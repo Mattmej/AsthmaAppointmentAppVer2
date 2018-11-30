@@ -116,6 +116,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerCell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppointmentHeader") as? AppointmentHeader else { return UITableViewCell() }
         
+        headerCell.backgroundView = UIView(frame: headerCell.bounds)
+        headerCell.backgroundView?.backgroundColor = UIColor.cyan
+        
         switch section {
         case 0:
             headerCell.setup(header: "Upcoming Appointments", currentSelection: 0)
