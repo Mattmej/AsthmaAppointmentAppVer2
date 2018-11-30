@@ -37,17 +37,17 @@ class ViewController: UIViewController, BDelegate{
 //    var currentSelection:Int = 0
     
     var people:[Appointment] = [
-        Appointment(image: "user", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", appointmentType: AppointmentType.past,  hasAsthma: true),
-        Appointment(image: "user", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
-        Appointment(image: "user", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", appointmentType: AppointmentType.upcoming, hasAsthma: false),
-        Appointment(image: "user", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
-        Appointment(image: "user", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", appointmentType: AppointmentType.past, hasAsthma: false),
-        Appointment(image: "user", name: "Jeff", date: "30/11/2018", place: "Atlanta", specialty: "Sailor", appointmentType: AppointmentType.upcoming, hasAsthma: true),
-        Appointment(image: "user", name: "Jenna", date: "30/11/2018", place: "Atlanta", specialty: "Web Developer", appointmentType: AppointmentType.upcoming, hasAsthma: false),
-        Appointment(image: "user", name: "Alex", date: "30/11/2018", place: "Atlanta", specialty: "Fisherman", appointmentType: AppointmentType.past, hasAsthma: false),
-        Appointment(image: "user", name: "Laura", date: "30/11/2018", place: "Atlanta", specialty: "Singer", appointmentType: AppointmentType.past, hasAsthma: true),
-        Appointment(image: "user", name: "Eric", date: "30/11/2018", place: "Atlanta", specialty: "Doctor", appointmentType: AppointmentType.past, hasAsthma: true),
-        Appointment(image: "user", name: "Phil", date: "30/11/2018", place: "Atlanta", specialty: "Truck Driver", appointmentType: AppointmentType.past, hasAsthma: true)
+        Appointment(image: "person1", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", appointmentType: AppointmentType.past,  hasAsthma: true),
+        Appointment(image: "person4", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
+        Appointment(image: "person5", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", appointmentType: AppointmentType.upcoming, hasAsthma: false),
+        Appointment(image: "person6", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
+        Appointment(image: "person7", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", appointmentType: AppointmentType.past, hasAsthma: false),
+        Appointment(image: "person8", name: "Jeff", date: "30/11/2018", place: "Atlanta", specialty: "Sailor", appointmentType: AppointmentType.upcoming, hasAsthma: true),
+        Appointment(image: "person2", name: "Jenna", date: "30/11/2018", place: "Atlanta", specialty: "Web Developer", appointmentType: AppointmentType.upcoming, hasAsthma: false),
+        Appointment(image: "person9", name: "Alex", date: "30/11/2018", place: "Atlanta", specialty: "Fisherman", appointmentType: AppointmentType.past, hasAsthma: false),
+        Appointment(image: "person3", name: "Laura", date: "30/11/2018", place: "Atlanta", specialty: "Singer", appointmentType: AppointmentType.past, hasAsthma: true),
+        Appointment(image: "person10", name: "Eric", date: "30/11/2018", place: "Atlanta", specialty: "Doctor", appointmentType: AppointmentType.past, hasAsthma: true),
+        Appointment(image: "person11", name: "Phil", date: "30/11/2018", place: "Atlanta", specialty: "Truck Driver", appointmentType: AppointmentType.past, hasAsthma: true)
 
     ]
     
