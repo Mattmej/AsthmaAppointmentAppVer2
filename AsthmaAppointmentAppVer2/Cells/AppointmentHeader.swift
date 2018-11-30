@@ -23,10 +23,23 @@ class AppointmentHeader: UITableViewHeaderFooterView {
     }
     */
     
+    var currentSelection:Int = 0
+    
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBAction func segmentValueChanged(_ sender: Any) {
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    func setup(header:String, currentSelection:Int) {
+        self.topLabel.text = header
+        self.currentSelection = currentSelection
+        
     }
     
 

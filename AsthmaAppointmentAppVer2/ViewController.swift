@@ -25,10 +25,14 @@ class ViewController: UIViewController {
     ]
     
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+//        tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forCellReuseIdentifier: "AppointmentHeader")
+        tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,6 +110,31 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //        }
         
         return people.filter{$0.appointmentType == appointmentType}
+    }
+    
+    // Display header cell
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerCell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppointmentHeader") as? AppointmentHeader else { return UITableViewCell() }
+        
+//        switch section {
+//        case 0:
+//            headerCell.setup(header: "Upcoming Appointments", currentSelection: 0)
+//            return headerCell
+//
+//        case 1:
+//            headerCell.setup(header: "Past Appointments", currentSelection: 0)
+//            return headerCell
+//
+//        default:
+//            headerCell.setup(header: "Appointments", currentSelection: 0)
+//            return headerCell
+//
+//        }
+        
+        headerCell.setup(header: "Appointments", currentSelection: 0)
+        return headerCell
+        
+        
     }
     
     
