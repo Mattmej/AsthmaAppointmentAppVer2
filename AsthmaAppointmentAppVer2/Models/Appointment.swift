@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum AppointmentType:Int {
+    case past
+    case upcoming
+}
+
 struct Appointment {
     var image: String
     var name: String
@@ -15,5 +20,7 @@ struct Appointment {
     var place: String
     var specialty: String
 //    var isUpcoming: Bool
+//    var isUpcoming: AppointmentType
+    var appointmentType: AppointmentType
     var hasAsthma: Bool
 }
