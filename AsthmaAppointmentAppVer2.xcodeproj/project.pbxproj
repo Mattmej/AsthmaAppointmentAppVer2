@@ -14,6 +14,8 @@
 		C9EAC96521B0B6E0003A6273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EAC96321B0B6E0003A6273 /* LaunchScreen.storyboard */; };
 		C9EAC97021B0B6E0003A6273 /* AsthmaAppointmentAppVer2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC96F21B0B6E0003A6273 /* AsthmaAppointmentAppVer2Tests.swift */; };
 		C9EAC97B21B0B6E0003A6273 /* AsthmaAppointmentAppVer2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC97A21B0B6E0003A6273 /* AsthmaAppointmentAppVer2UITests.swift */; };
+		C9EAC98A21B0BDFF003A6273 /* AppointmentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC98921B0BDFF003A6273 /* AppointmentHeader.swift */; };
+		C9EAC98C21B0BE16003A6273 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC98B21B0BE16003A6273 /* AppointmentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		C9EAC97621B0B6E0003A6273 /* AsthmaAppointmentAppVer2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaAppointmentAppVer2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EAC97A21B0B6E0003A6273 /* AsthmaAppointmentAppVer2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaAppointmentAppVer2UITests.swift; sourceTree = "<group>"; };
 		C9EAC97C21B0B6E0003A6273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9EAC98921B0BDFF003A6273 /* AppointmentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHeader.swift; sourceTree = "<group>"; };
+		C9EAC98B21B0BE16003A6273 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		C9EAC95921B0B6DE003A6273 /* AsthmaAppointmentAppVer2 */ = {
 			isa = PBXGroup;
 			children = (
+				C9EAC98821B0BDE4003A6273 /* Cells */,
 				C9EAC95A21B0B6DE003A6273 /* AppDelegate.swift */,
 				C9EAC95C21B0B6DE003A6273 /* ViewController.swift */,
 				C9EAC95E21B0B6DE003A6273 /* Main.storyboard */,
@@ -123,6 +128,15 @@
 				C9EAC97C21B0B6E0003A6273 /* Info.plist */,
 			);
 			path = AsthmaAppointmentAppVer2UITests;
+			sourceTree = "<group>";
+		};
+		C9EAC98821B0BDE4003A6273 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C9EAC98921B0BDFF003A6273 /* AppointmentHeader.swift */,
+				C9EAC98B21B0BE16003A6273 /* AppointmentTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +272,8 @@
 			files = (
 				C9EAC95D21B0B6DE003A6273 /* ViewController.swift in Sources */,
 				C9EAC95B21B0B6DE003A6273 /* AppDelegate.swift in Sources */,
+				C9EAC98A21B0BDFF003A6273 /* AppointmentHeader.swift in Sources */,
+				C9EAC98C21B0BE16003A6273 /* AppointmentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
