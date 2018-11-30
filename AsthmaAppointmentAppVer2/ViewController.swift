@@ -50,7 +50,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return 1
 //        return people.count
-        return splitLists(appointmentType: AppointmentType.upcoming).count
+//        return splitLists(appointmentType: AppointmentType.upcoming).count
+        
+        switch section {
+        case 0:
+            return splitLists(appointmentType: AppointmentType.upcoming).count
+        case 1:
+            return splitLists(appointmentType: AppointmentType.past).count
+        default:
+            return people.count
+        }
+        
     }
     
     // Loop through individual cells
@@ -58,11 +68,32 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? AppointmentTableViewCell else { return UITableViewCell() }
         
 //        let item = people[indexPath.row]
-        let item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
+        
+        var item:Appointment = people[indexPath.row]
+        
+        
+//        if indexPath.section == 0 {
+//            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
+//
+//        }
+//
+//        else {
+//            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
+//        }
+        
+        switch indexPath.section {
+        case 0:
+            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
+        case 1:
+            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
+        default:
+            item = people[indexPath.row]
+        }
+        
         cell.setup(appointment:item)
-        
-        
         return cell
+        
+
     }
     
     // Split into upcoming and past sections
