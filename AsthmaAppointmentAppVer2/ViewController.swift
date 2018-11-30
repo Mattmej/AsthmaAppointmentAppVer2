@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     var people:[Appointment] = [
         Appointment(image: "user", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", appointmentType: AppointmentType.past,  hasAsthma: true),
-        Appointment(image: "user", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", appointmentType: AppointmentType.upcoming hasAsthma: true),
+        Appointment(image: "user", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
         Appointment(image: "user", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", appointmentType: AppointmentType.upcoming, hasAsthma: false),
         Appointment(image: "user", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
         Appointment(image: "user", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", appointmentType: AppointmentType.past, hasAsthma: false)
@@ -49,20 +49,33 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return 1
-        return people.count
+//        return people.count
+        return splitLists(appointmentType: AppointmentType.upcoming).count
     }
     
+    // Loop through individual cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? AppointmentTableViewCell else { return UITableViewCell() }
         
-        let item = people[indexPath.row]
+//        let item = people[indexPath.row]
+        let item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
         cell.setup(appointment:item)
         
         
         return cell
     }
     
-//    func splitLists(by )
+    // Split into upcoming and past sections
+    func splitLists(appointmentType: AppointmentType) -> [Appointment] {
+//        if appointmentType == AppointmentType.upcoming {
+//            return people.filter{$0.appointmentType == appointmentType}
+//        }
+//        else {
+//            return people.filter{$0.appointmentType == }
+//        }
+        
+        return people.filter{$0.appointmentType == appointmentType}
+    }
     
     
 }
