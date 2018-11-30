@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum AppointmentType:Int {
+    case past
+    case upcoming
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,6 +27,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    func filterLists(currentList: AppointmentType) -> [Appointment]
 
 
 }
