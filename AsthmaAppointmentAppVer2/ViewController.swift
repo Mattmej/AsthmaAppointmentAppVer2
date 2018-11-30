@@ -29,7 +29,7 @@ class ViewController: UIViewController, BDelegate{
         }
         
         currentSelection = segmentIndex
-        tableView.reloadSections([0,1], with: .fade)
+        tableView.reloadSections([0, 1], with: .fade)
         return filteredPeople
     }
     
@@ -41,7 +41,13 @@ class ViewController: UIViewController, BDelegate{
         Appointment(image: "user", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
         Appointment(image: "user", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", appointmentType: AppointmentType.upcoming, hasAsthma: false),
         Appointment(image: "user", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
-        Appointment(image: "user", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", appointmentType: AppointmentType.past, hasAsthma: false)
+        Appointment(image: "user", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", appointmentType: AppointmentType.past, hasAsthma: false),
+        Appointment(image: "user", name: "Jeff", date: "30/11/2018", place: "Atlanta", specialty: "Sailor", appointmentType: AppointmentType.upcoming, hasAsthma: true),
+        Appointment(image: "user", name: "Jenna", date: "30/11/2018", place: "Atlanta", specialty: "Web Developer", appointmentType: AppointmentType.upcoming, hasAsthma: false),
+        Appointment(image: "user", name: "Alex", date: "30/11/2018", place: "Atlanta", specialty: "Fisherman", appointmentType: AppointmentType.past, hasAsthma: false),
+        Appointment(image: "user", name: "Laura", date: "30/11/2018", place: "Atlanta", specialty: "Singer", appointmentType: AppointmentType.past, hasAsthma: true),
+        Appointment(image: "user", name: "Eric", date: "30/11/2018", place: "Atlanta", specialty: "Doctor", appointmentType: AppointmentType.past, hasAsthma: true),
+        Appointment(image: "user", name: "Phil", date: "30/11/2018", place: "Atlanta", specialty: "Truck Driver", appointmentType: AppointmentType.past, hasAsthma: true)
 
     ]
     
