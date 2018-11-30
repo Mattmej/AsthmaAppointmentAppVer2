@@ -15,4 +15,5 @@ struct Appointment {
     var place: String
     var specialty: String
     var isUpcoming: Bool
+    var hasAsthma: Bool
 }
