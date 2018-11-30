@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BDelegate {
-    func filterLists(hasAsthma:Bool) -> [Appointment]
+    func filterLists(segmentIndex:Int) -> [Appointment]
 //    func splitLists(isUpcoming:Bool) -> [Appointment]
 }
 
@@ -23,12 +23,15 @@ class AppointmentHeader: UITableViewHeaderFooterView {
     }
     */
     
+    var delegate:BDelegate?
+    
     var currentSelection:Int = 0
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBAction func segmentValueChanged(_ sender: Any) {
+        delegate?.filterLists(segmentIndex: segmentedControl.selectedSegmentIndex)
     }
     
     override func awakeFromNib() {
@@ -39,6 +42,8 @@ class AppointmentHeader: UITableViewHeaderFooterView {
     func setup(header:String, currentSelection:Int) {
         self.topLabel.text = header
         self.currentSelection = currentSelection
+        segmentedControl.selectedSegmentIndex = currentSelection
+
         
     }
     

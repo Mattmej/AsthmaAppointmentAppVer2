@@ -10,10 +10,31 @@ import UIKit
 
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BDelegate{
+    
+    var currentSelection:Int = 0
+    var filteredPeople:[Appointment] = []
+    
+    func filterLists(segmentIndex: Int) -> [Appointment] {
+        print(segmentIndex)
+        switch segmentIndex {
+        case 0:
+            filteredPeople = people.filter{$0.hasAsthma == true}
+        default:
+            filteredPeople = people
+//        case 1:
+//            filteredPeople = people.filter{$0.hasAsthma == false}
+//        default:
+//            filteredPeople = []
+        }
+        
+        currentSelection = segmentIndex
+        tableView.reloadSections([0,1], with: .fade)
+        return filteredPeople
+    }
     
     @IBOutlet weak var tableView: UITableView!
-    var currentSelection:Int = 0
+//    var currentSelection:Int = 0
     
     var people:[Appointment] = [
         Appointment(image: "user", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", appointmentType: AppointmentType.past,  hasAsthma: true),
@@ -116,20 +137,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerCell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppointmentHeader") as? AppointmentHeader else { return UITableViewCell() }
         
+        headerCell.delegate = self
+        
         headerCell.backgroundView = UIView(frame: headerCell.bounds)
         headerCell.backgroundView?.backgroundColor = UIColor.cyan
         
         switch section {
         case 0:
-            headerCell.setup(header: "Upcoming Appointments", currentSelection: 0)
+            headerCell.setup(header: "Upcoming Appointments", currentSelection: currentSelection)
 //            return headerCell
 
         case 1:
-            headerCell.setup(header: "Past Appointments", currentSelection: 0)
+            headerCell.setup(header: "Past Appointments", currentSelection: currentSelection)
 //            return headerCell
 
         default:
-            headerCell.setup(header: "Appointments", currentSelection: 0)
+            headerCell.setup(header: "Appointments", currentSelection: currentSelection)
 //            return headerCell
 
         }
