@@ -55,7 +55,7 @@ class ViewController: UIViewController, BDelegate{
 //        tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forCellReuseIdentifier: "AppointmentHeader")
         tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
         
-        filteredPeople = people
+        filteredPeople = filterLists(segmentIndex: 0)
     }
 
     override func didReceiveMemoryWarning() {
