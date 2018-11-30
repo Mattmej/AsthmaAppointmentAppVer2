@@ -14,8 +14,9 @@
 		C9EAC96521B0B6E0003A6273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EAC96321B0B6E0003A6273 /* LaunchScreen.storyboard */; };
 		C9EAC97021B0B6E0003A6273 /* AsthmaAppointmentAppVer2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC96F21B0B6E0003A6273 /* AsthmaAppointmentAppVer2Tests.swift */; };
 		C9EAC97B21B0B6E0003A6273 /* AsthmaAppointmentAppVer2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC97A21B0B6E0003A6273 /* AsthmaAppointmentAppVer2UITests.swift */; };
-		C9EAC98A21B0BDFF003A6273 /* AppointmentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC98921B0BDFF003A6273 /* AppointmentHeader.swift */; };
-		C9EAC98C21B0BE16003A6273 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC98B21B0BE16003A6273 /* AppointmentTableViewCell.swift */; };
+		C9EAC98E21B0BEC4003A6273 /* AppointmentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC98D21B0BEC4003A6273 /* AppointmentHeader.swift */; };
+		C9EAC99021B0BEF1003A6273 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EAC98F21B0BEF1003A6273 /* AppointmentTableViewCell.swift */; };
+		C9EAC99221B0BF03003A6273 /* AppointmentHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9EAC99121B0BF03003A6273 /* AppointmentHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +50,9 @@
 		C9EAC97621B0B6E0003A6273 /* AsthmaAppointmentAppVer2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaAppointmentAppVer2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EAC97A21B0B6E0003A6273 /* AsthmaAppointmentAppVer2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaAppointmentAppVer2UITests.swift; sourceTree = "<group>"; };
 		C9EAC97C21B0B6E0003A6273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9EAC98921B0BDFF003A6273 /* AppointmentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHeader.swift; sourceTree = "<group>"; };
-		C9EAC98B21B0BE16003A6273 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		C9EAC98D21B0BEC4003A6273 /* AppointmentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHeader.swift; sourceTree = "<group>"; };
+		C9EAC98F21B0BEF1003A6273 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		C9EAC99121B0BF03003A6273 /* AppointmentHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +135,9 @@
 		C9EAC98821B0BDE4003A6273 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C9EAC98921B0BDFF003A6273 /* AppointmentHeader.swift */,
-				C9EAC98B21B0BE16003A6273 /* AppointmentTableViewCell.swift */,
+				C9EAC98D21B0BEC4003A6273 /* AppointmentHeader.swift */,
+				C9EAC98F21B0BEF1003A6273 /* AppointmentTableViewCell.swift */,
+				C9EAC99121B0BF03003A6273 /* AppointmentHeader.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			files = (
 				C9EAC96521B0B6E0003A6273 /* LaunchScreen.storyboard in Resources */,
 				C9EAC96221B0B6E0003A6273 /* Assets.xcassets in Resources */,
+				C9EAC99221B0BF03003A6273 /* AppointmentHeader.xib in Resources */,
 				C9EAC96021B0B6DE003A6273 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,8 +276,8 @@
 			files = (
 				C9EAC95D21B0B6DE003A6273 /* ViewController.swift in Sources */,
 				C9EAC95B21B0B6DE003A6273 /* AppDelegate.swift in Sources */,
-				C9EAC98A21B0BDFF003A6273 /* AppointmentHeader.swift in Sources */,
-				C9EAC98C21B0BE16003A6273 /* AppointmentTableViewCell.swift in Sources */,
+				C9EAC98E21B0BEC4003A6273 /* AppointmentHeader.swift in Sources */,
+				C9EAC99021B0BEF1003A6273 /* AppointmentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
