@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,6 +55,52 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uxr-Mz-Xn1" id="6M8-Yw-6vf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iLF-Ix-VJZ" userLabel="User Image">
+                                                    <rect key="frame" x="25" y="21" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="Pmo-sO-NmC"/>
+                                                        <constraint firstAttribute="width" constant="60" id="dIW-Ix-RpO"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xdW-Rg-qLb">
+                                                    <rect key="frame" x="95" y="21" width="255" height="98"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-6f-2vl" userLabel="Name Label">
+                                                            <rect key="frame" x="0.0" y="0.0" width="255" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLJ-Fr-js4" userLabel="Appointment Date Label">
+                                                            <rect key="frame" x="0.0" y="27.5" width="255" height="24.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WF-UR-gvm" userLabel="Specialty Label">
+                                                            <rect key="frame" x="0.0" y="52" width="255" height="24.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5R-Ab-wfh" userLabel="Place Label">
+                                                            <rect key="frame" x="0.0" y="76.5" width="255" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iLF-Ix-VJZ" firstAttribute="top" secondItem="6M8-Yw-6vf" secondAttribute="topMargin" constant="10" id="6Pl-88-DMH"/>
+                                                <constraint firstItem="xdW-Rg-qLb" firstAttribute="leading" secondItem="iLF-Ix-VJZ" secondAttribute="trailing" constant="10" id="BbG-1h-HUN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xdW-Rg-qLb" secondAttribute="bottom" constant="10" id="F1h-fM-nFJ"/>
+                                                <constraint firstItem="xdW-Rg-qLb" firstAttribute="top" secondItem="iLF-Ix-VJZ" secondAttribute="top" id="g8B-1J-GgH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xdW-Rg-qLb" secondAttribute="trailing" constant="10" id="jCM-95-bg6"/>
+                                                <constraint firstItem="iLF-Ix-VJZ" firstAttribute="leading" secondItem="6M8-Yw-6vf" secondAttribute="leadingMargin" constant="10" id="mLH-fO-fgB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
