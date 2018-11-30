@@ -54,6 +54,8 @@ class ViewController: UIViewController, BDelegate{
         
 //        tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forCellReuseIdentifier: "AppointmentHeader")
         tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
+        
+        filteredPeople = people
     }
 
     override func didReceiveMemoryWarning() {
@@ -130,7 +132,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //            return people.filter{$0.appointmentType == }
 //        }
         
-        return people.filter{$0.appointmentType == appointmentType}
+        return filteredPeople.filter{$0.appointmentType == appointmentType}
     }
     
     // Display header cell
