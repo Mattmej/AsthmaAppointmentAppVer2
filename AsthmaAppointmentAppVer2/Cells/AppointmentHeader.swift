@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol BDelegate {
+    func filterLists(hasAsthma:Bool) -> [Appointment]
+//    func splitLists(isUpcoming:Bool) -> [Appointment]
+}
+
 class AppointmentHeader: UITableViewHeaderFooterView {
 
     /*
@@ -17,5 +22,12 @@ class AppointmentHeader: UITableViewHeaderFooterView {
         // Drawing code
     }
     */
+    
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBAction func segmentValueChanged(_ sender: Any) {
+    }
+    
 
 }

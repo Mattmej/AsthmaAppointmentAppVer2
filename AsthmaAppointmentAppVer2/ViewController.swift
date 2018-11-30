@@ -19,11 +19,11 @@ class ViewController: UIViewController {
     var currentSelection:Int = 0
     
     var people:[Appointment] = [
-        Appointment(image: "user", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", isUpcoming: false, hasAsthma: true),
-        Appointment(image: "user", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", isUpcoming: true, hasAsthma: true),
-        Appointment(image: "user", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", isUpcoming: true, hasAsthma: false),
-        Appointment(image: "user", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", isUpcoming: true, hasAsthma: true),
-        Appointment(image: "user", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", isUpcoming: false, hasAsthma: false)
+        Appointment(image: "user", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", hasAsthma: true),
+        Appointment(image: "user", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", hasAsthma: true),
+        Appointment(image: "user", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", hasAsthma: false),
+        Appointment(image: "user", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", hasAsthma: true),
+        Appointment(image: "user", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", hasAsthma: false)
 
     ]
     
@@ -64,6 +64,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+//    func splitLists(by )
     
     
 }
