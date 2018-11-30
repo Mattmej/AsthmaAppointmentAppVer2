@@ -15,8 +15,23 @@ class ViewController: UIViewController, BDelegate{
     var currentSelection:Int = 0
     var filteredPeople:[Appointment] = []
     
-    func filterLists(segmentIndex: Int) -> [Appointment] {
+    func filterLists(appointmentHeader:AppointmentHeader, segmentIndex: Int, section:Int) -> [Appointment] {
         print(segmentIndex)
+        
+        switch section {
+            
+        // For "upcoming appointments" section
+        case 0:
+            if segmentIndex == 0 {
+                filteredPeople = people.filter{$0.hasAsthma == true}
+            }
+            
+            else
+        }
+        
+        
+        
+        
         switch segmentIndex {
         case 0:
             filteredPeople = people.filter{$0.hasAsthma == true}
@@ -152,15 +167,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch section {
         case 0:
-            headerCell.setup(header: "Upcoming Appointments", currentSelection: currentSelection)
+            headerCell.setup(header: "Upcoming Appointments", currentSelection: currentSelection, section: section)
 //            return headerCell
 
         case 1:
-            headerCell.setup(header: "Past Appointments", currentSelection: currentSelection)
+            headerCell.setup(header: "Past Appointments", currentSelection: currentSelection, section: section)
 //            return headerCell
 
         default:
-            headerCell.setup(header: "Appointments", currentSelection: currentSelection)
+            headerCell.setup(header: "Appointments", currentSelection: currentSelection, section: section)
 //            return headerCell
 
         }
