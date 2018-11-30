@@ -116,22 +116,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerCell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppointmentHeader") as? AppointmentHeader else { return UITableViewCell() }
         
-//        switch section {
-//        case 0:
-//            headerCell.setup(header: "Upcoming Appointments", currentSelection: 0)
+        switch section {
+        case 0:
+            headerCell.setup(header: "Upcoming Appointments", currentSelection: 0)
 //            return headerCell
-//
-//        case 1:
-//            headerCell.setup(header: "Past Appointments", currentSelection: 0)
+
+        case 1:
+            headerCell.setup(header: "Past Appointments", currentSelection: 0)
 //            return headerCell
-//
-//        default:
-//            headerCell.setup(header: "Appointments", currentSelection: 0)
+
+        default:
+            headerCell.setup(header: "Appointments", currentSelection: 0)
 //            return headerCell
-//
-//        }
+
+        }
         
-        headerCell.setup(header: "Appointments", currentSelection: 0)
+//        headerCell.setup(header: "Appointments", currentSelection: 0)
         return headerCell
         
         
