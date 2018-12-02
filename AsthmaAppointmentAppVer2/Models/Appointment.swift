@@ -9,8 +9,8 @@
 import Foundation
 
 enum AppointmentType:Int {
-    case past
-    case upcoming
+    case past = 1
+    case upcoming = 0
 }
 
 struct Appointment {
@@ -21,6 +21,6 @@ struct Appointment {
     var specialty: String
 //    var isUpcoming: Bool
 //    var isUpcoming: AppointmentType
-    var appointmentType: AppointmentType
+//    var appointmentType: AppointmentType
     var hasAsthma: Bool
 }

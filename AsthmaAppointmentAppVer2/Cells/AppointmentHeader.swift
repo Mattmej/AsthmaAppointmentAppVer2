@@ -31,7 +31,7 @@ class AppointmentHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBAction func segmentValueChanged(_ sender: Any) {
-        delegate?.filterLists(appointmentHeader:self, segmentIndex: segmentedControl.selectedSegmentIndex)
+        delegate?.filterLists(appointmentHeader:self, segmentIndex: segmentedControl.selectedSegmentIndex, section: section)
     }
     
     override func awakeFromNib() {

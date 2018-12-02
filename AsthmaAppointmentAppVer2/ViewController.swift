@@ -21,27 +21,47 @@ class ViewController: UIViewController, BDelegate{
         switch section {
             
         // For "upcoming appointments" section
-        case 0:
+//        case 0:
+//            if segmentIndex == 0 {
+//                filteredPeople = people.filter{$0.hasAsthma == true}
+//            }
+//
+//            else
+            
+        case AppointmentType.upcoming.rawValue:
             if segmentIndex == 0 {
-                filteredPeople = people.filter{$0.hasAsthma == true}
+                filteredPeople = upcomingAppointments.filter{$0.hasAsthma == true}
+            }
+            else {
+                filteredPeople = upcomingAppointments
             }
             
-            else
+        case AppointmentType.past.rawValue:
+            if segmentIndex == 0 {
+                filteredPeople = pastAppointments.filter{$0.hasAsthma == true}
+            }
+            else {
+                filteredPeople = pastAppointments
+            }
+            
+        default:
+            filteredPeople = []
         }
         
         
         
         
-        switch segmentIndex {
-        case 0:
-            filteredPeople = people.filter{$0.hasAsthma == true}
-        default:
-            filteredPeople = people
+        
+//        switch segmentIndex {
+//        case 0:
+//            filteredPeople = people.filter{$0.hasAsthma == true}
+//        default:
+//            filteredPeople = people
 //        case 1:
 //            filteredPeople = people.filter{$0.hasAsthma == false}
 //        default:
 //            filteredPeople = []
-        }
+//        }
         
         currentSelection = segmentIndex
         tableView.reloadSections([0, 1], with: .fade)
@@ -50,20 +70,37 @@ class ViewController: UIViewController, BDelegate{
     
     @IBOutlet weak var tableView: UITableView!
 //    var currentSelection:Int = 0
-    
-    var people:[Appointment] = [
-        Appointment(image: "person1", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", appointmentType: AppointmentType.past,  hasAsthma: true),
-        Appointment(image: "person4", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
-        Appointment(image: "person5", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", appointmentType: AppointmentType.upcoming, hasAsthma: false),
-        Appointment(image: "person6", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", appointmentType: AppointmentType.upcoming, hasAsthma: true),
-        Appointment(image: "person7", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", appointmentType: AppointmentType.past, hasAsthma: false),
-        Appointment(image: "person8", name: "Jeff", date: "30/11/2018", place: "Atlanta", specialty: "Sailor", appointmentType: AppointmentType.upcoming, hasAsthma: true),
-        Appointment(image: "person2", name: "Jenna", date: "30/11/2018", place: "Atlanta", specialty: "Web Developer", appointmentType: AppointmentType.upcoming, hasAsthma: false),
-        Appointment(image: "person9", name: "Alex", date: "30/11/2018", place: "Atlanta", specialty: "Fisherman", appointmentType: AppointmentType.past, hasAsthma: false),
-        Appointment(image: "person3", name: "Laura", date: "30/11/2018", place: "Atlanta", specialty: "Singer", appointmentType: AppointmentType.past, hasAsthma: true),
-        Appointment(image: "person10", name: "Eric", date: "30/11/2018", place: "Atlanta", specialty: "Doctor", appointmentType: AppointmentType.past, hasAsthma: true),
-        Appointment(image: "person11", name: "Phil", date: "30/11/2018", place: "Atlanta", specialty: "Truck Driver", appointmentType: AppointmentType.past, hasAsthma: true)
 
+    var allAppointments:[Appointment] = [
+        Appointment(image: "person1", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", hasAsthma: true),
+        Appointment(image: "person4", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", hasAsthma: true),
+        Appointment(image: "person5", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", hasAsthma: false),
+        Appointment(image: "person6", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", hasAsthma: true),
+        Appointment(image: "person7", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", hasAsthma: false),
+        Appointment(image: "person8", name: "Jeff", date: "30/11/2018", place: "Atlanta", specialty: "Sailor", hasAsthma: true),
+        Appointment(image: "person2", name: "Jenna", date: "30/11/2018", place: "Atlanta", specialty: "Web Developer", hasAsthma: false),
+        Appointment(image: "person9", name: "Alex", date: "30/11/2018", place: "Atlanta", specialty: "Fisherman", hasAsthma: false),
+        Appointment(image: "person3", name: "Laura", date: "30/11/2018", place: "Atlanta", specialty: "Singer", hasAsthma: true),
+        Appointment(image: "person10", name: "Eric", date: "30/11/2018", place: "Atlanta", specialty: "Doctor", hasAsthma: true),
+        Appointment(image: "person11", name: "Phil", date: "30/11/2018", place: "Atlanta", specialty: "Truck Driver", hasAsthma: true)
+    ]
+    
+    var upcomingAppointments:[Appointment] = [
+        Appointment(image: "person4", name: "Eduardo", date: "28/11/2018", place: "Atlanta", specialty: "PHP Developer", hasAsthma: true),
+        Appointment(image: "person5", name: "Matt", date: "29/11/2018", place: "Atlanta", specialty: "Teacher", hasAsthma: false),
+        Appointment(image: "person6", name: "Jesus", date: "30/11/2018", place: "Atlanta", specialty: "Java Developer", hasAsthma: true),
+        Appointment(image: "person7", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", hasAsthma: false),
+        Appointment(image: "person8", name: "Jeff", date: "30/11/2018", place: "Atlanta", specialty: "Sailor", hasAsthma: true),
+        Appointment(image: "person2", name: "Jenna", date: "30/11/2018", place: "Atlanta", specialty: "Web Developer", hasAsthma: false)
+    ]
+    
+    var pastAppointments:[Appointment] = [
+        Appointment(image: "person1", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer",  hasAsthma: true),
+        Appointment(image: "person7", name: "Adan", date: "30/11/2018", place: "Atlanta", specialty: "iOS Developer", hasAsthma: false),
+        Appointment(image: "person9", name: "Alex", date: "30/11/2018", place: "Atlanta", specialty: "Fisherman", hasAsthma: false),
+        Appointment(image: "person3", name: "Laura", date: "30/11/2018", place: "Atlanta", specialty: "Singer", hasAsthma: true),
+        Appointment(image: "person10", name: "Eric", date: "30/11/2018", place: "Atlanta", specialty: "Doctor", hasAsthma: true),
+        Appointment(image: "person11", name: "Phil", date: "30/11/2018", place: "Atlanta", specialty: "Truck Driver", hasAsthma: true)
     ]
     
     
@@ -101,12 +138,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //        return splitLists(appointmentType: AppointmentType.upcoming).count
         
         switch section {
-        case 0:
+        case AppointmentType.upcoming.rawValue:
             return splitLists(appointmentType: AppointmentType.upcoming).count
-        case 1:
+        case AppointmentType.past.rawValue:
             return splitLists(appointmentType: AppointmentType.past).count
         default:
-            return people.count
+//            return people.count
+            return allAppointments.count
         }
         
     }
