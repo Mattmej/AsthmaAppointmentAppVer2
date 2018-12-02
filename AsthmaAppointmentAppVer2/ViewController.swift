@@ -113,7 +113,7 @@ class ViewController: UIViewController, BDelegate{
 //        tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forCellReuseIdentifier: "AppointmentHeader")
         tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
         
-        filteredPeople = filterLists(segmentIndex: 0)
+//        filteredPeople = filterLists(appointmentHeader: <#AppointmentHeader#>, segmentIndex: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -139,9 +139,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch section {
         case AppointmentType.upcoming.rawValue:
-            return splitLists(appointmentType: AppointmentType.upcoming).count
+//            return splitLists(appointmentType: AppointmentType.upcoming).count
+            return upcomingAppointments.count
         case AppointmentType.past.rawValue:
-            return splitLists(appointmentType: AppointmentType.past).count
+//            return splitLists(appointmentType: AppointmentType.past).count
+            return pastAppointments.count
         default:
 //            return people.count
             return allAppointments.count
@@ -155,7 +157,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
 //        let item = people[indexPath.row]
         
-        var item:Appointment = people[indexPath.row]
+//        var item:Appointment = people[indexPath.row]
+        
+        var item:Appointment = allAppointments[indexPath.row]
         
         
 //        if indexPath.section == 0 {
@@ -169,11 +173,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
+//            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
+            item = upcomingAppointments[indexPath.row]
         case 1:
-            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
+//            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
+            item = pastAppointments[indexPath.row]
         default:
-            item = people[indexPath.row]
+//            item = people[indexPath.row]
+            item = allAppointments[indexPath.row]
         }
         
         cell.setup(appointment:item)
@@ -182,17 +189,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     }
     
-    // Split into upcoming and past sections
-    func splitLists(appointmentType: AppointmentType) -> [Appointment] {
-//        if appointmentType == AppointmentType.upcoming {
-//            return people.filter{$0.appointmentType == appointmentType}
-//        }
-//        else {
-//            return people.filter{$0.appointmentType == }
-//        }
-        
-        return filteredPeople.filter{$0.appointmentType == appointmentType}
-    }
+//    // Split into upcoming and past sections
+//    func splitLists(appointmentType: AppointmentType) -> [Appointment] {
+////        if appointmentType == AppointmentType.upcoming {
+////            return people.filter{$0.appointmentType == appointmentType}
+////        }
+////        else {
+////            return people.filter{$0.appointmentType == }
+////        }
+//
+//        return filteredPeople.filter{$0.appointmentType == appointmentType}
+//    }
     
     // Display header cell
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
