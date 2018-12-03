@@ -18,58 +18,62 @@ class ViewController: UIViewController, BDelegate{
     func filterLists(appointmentHeader:AppointmentHeader, segmentIndex: Int, section:Int) -> [Appointment] {
         print(segmentIndex)
         
+        // Cases for each section
         switch section {
             
-        // For "upcoming appointments" section
-//        case 0:
-//            if segmentIndex == 0 {
-//                filteredPeople = people.filter{$0.hasAsthma == true}
-//            }
-//
-//            else
             
+        // If we are in the 'upcoming' section, perform the following:
         case AppointmentType.upcoming.rawValue:
+            
+            // If the first segment of the segmented controller is selected, then...
             if segmentIndex == 0 {
+                
+                // Store the people that have asthma in the filteredPeople array.
                 filteredPeople = upcomingAppointments.filter{$0.hasAsthma == true}
             }
+                
+            // If any other segment of the segmented controller is selected, then...
             else {
+                
+                // Store all people in the upcomingAppointments array into the filteredPeople array.
                 filteredPeople = upcomingAppointments
             }
             
+        // If we are in the 'past' section of the tableView, perform the following:
         case AppointmentType.past.rawValue:
+            
+            // If the first segment of the segmented controller is selected, then...
             if segmentIndex == 0 {
+                
+                // Store the people that have asthma in the filteredPeople array.
                 filteredPeople = pastAppointments.filter{$0.hasAsthma == true}
             }
+                
+            // If any other segment of the segmented controller is selected, then...
             else {
+                
+                // Store all people in the pastAppointments array into the filteredPeople array.
                 filteredPeople = pastAppointments
             }
             
+        // If we aren't in either the 'upcoming' or 'past' sections, then...
         default:
+            
+            // filteredPeople will be an empty array.
             filteredPeople = []
         }
         
-        
-        
-        
-        
-//        switch segmentIndex {
-//        case 0:
-//            filteredPeople = people.filter{$0.hasAsthma == true}
-//        default:
-//            filteredPeople = people
-//        case 1:
-//            filteredPeople = people.filter{$0.hasAsthma == false}
-//        default:
-//            filteredPeople = []
-//        }
-        
+        // Sets the 'currentSelection' variable of the ViewController equal to the segment index.
         currentSelection = segmentIndex
+        
+        // Reload both sections of the table.
         tableView.reloadSections([0, 1], with: .fade)
+        
+        // Return the filteredPeople array.
         return filteredPeople
     }
     
     @IBOutlet weak var tableView: UITableView!
-//    var currentSelection:Int = 0
 
     var allAppointments:[Appointment] = [
         Appointment(image: "person1", name: "Isai", date: "27/11/2018", place: "Atlanta", specialty: "Lawyer", hasAsthma: true),
@@ -110,7 +114,6 @@ class ViewController: UIViewController, BDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forCellReuseIdentifier: "AppointmentHeader")
         tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
         
 //        filteredPeople = filterLists(appointmentHeader: <#AppointmentHeader#>, segmentIndex: 0)
@@ -121,31 +124,48 @@ class ViewController: UIViewController, BDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-//    func filterLists(currentList: AppointmentType) -> [Appointment]
-
-
 }
 
+
+
+/*******************************************************************************************/
+
+
+
+
+// Setting up the tableView
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
+    // Number of sections in tableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
+    // Number of rows for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return 1
 //        return people.count
 //        return splitLists(appointmentType: AppointmentType.upcoming).count
         
+        // Number of rows will differ depending on the section.
         switch section {
+            
+        // For the 'upcoming' section...
         case AppointmentType.upcoming.rawValue:
-//            return splitLists(appointmentType: AppointmentType.upcoming).count
+            
+            // The number of rows will equal the number of upcoming appointments.
             return upcomingAppointments.count
+            
+        // For the 'past' section...
         case AppointmentType.past.rawValue:
-//            return splitLists(appointmentType: AppointmentType.past).count
+            
+            // The number of rows will equal the number of past appointments.
             return pastAppointments.count
+            
+        // If we are in neither of those sections, then...
         default:
-//            return people.count
+            
+            // The number of rows will equal the number of total appointments.
             return allAppointments.count
         }
         
