@@ -52,7 +52,7 @@ class ViewController: UIViewController, BDelegate{
     var filteredUpcoming:[Appointment] = []
     var filteredPast:[Appointment] = []
     
-    func filterLists(appointmentHeader:AppointmentHeader, segmentIndex: Int, section:Int) -> [Appointment] {
+    func filterLists(appointmentHeader:AppointmentHeader, segmentIndex: Int, section:Int) {
         print("Segment Index:", segmentIndex)
         print("Section:", section)
         
@@ -114,7 +114,6 @@ class ViewController: UIViewController, BDelegate{
         print("")
         print(filteredUpcoming)
         print("")
-        return filteredUpcoming         // this is never used. Maybe I'll remove it.
     }
     
     @IBOutlet weak var tableView: UITableView!
