@@ -154,26 +154,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //        return splitLists(appointmentType: AppointmentType.upcoming).count
         
         // Number of rows will differ depending on the section.
-        switch section {
-            
-        // For the 'upcoming' section...
-        case AppointmentType.upcoming.rawValue:
-            
-            // The number of rows will equal the number of upcoming appointments.
-            return upcomingAppointments.count
-            
-        // For the 'past' section...
-        case AppointmentType.past.rawValue:
-            
-            // The number of rows will equal the number of past appointments.
-            return pastAppointments.count
-            
-        // If we are in neither of those sections, then...
-        default:
-            
-            // The number of rows will equal the number of total appointments.
-            return allAppointments.count
-        }
+//        switch section {
+//
+//        // For the 'upcoming' section...
+//        case AppointmentType.upcoming.rawValue:
+//
+//            // The number of rows will equal the number of upcoming appointments.
+//            return upcomingAppointments.count
+//
+//        // For the 'past' section...
+//        case AppointmentType.past.rawValue:
+//
+//            // The number of rows will equal the number of past appointments.
+//            return pastAppointments.count
+//
+//        // If we are in neither of those sections, then...
+//        default:
+//
+//            // The number of rows will equal the number of total appointments.
+//            return allAppointments.count
+//        }
+        
+        return filteredPeople.count
         
     }
     
@@ -185,7 +187,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
 //        var item:Appointment = people[indexPath.row]
         
-        var item:Appointment = allAppointments[indexPath.row]
+//        var item:Appointment = allAppointments[indexPath.row]
+        var item:Appointment = filteredPeople[indexPath.row]
         
         
 //        if indexPath.section == 0 {
@@ -197,17 +200,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
 //        }
         
-        switch indexPath.section {
-        case 0:
-//            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
-            item = upcomingAppointments[indexPath.row]
-        case 1:
-//            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
-            item = pastAppointments[indexPath.row]
-        default:
-//            item = people[indexPath.row]
-            item = allAppointments[indexPath.row]
-        }
+//        switch indexPath.section {
+//        case 0:
+////            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
+//            item = upcomingAppointments[indexPath.row]
+//        case 1:
+////            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
+//            item = pastAppointments[indexPath.row]
+//        default:
+////            item = people[indexPath.row]
+//            item = allAppointments[indexPath.row]
+//        }
         
         cell.setup(appointment:item)
         return cell
