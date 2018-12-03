@@ -12,11 +12,14 @@ import UIKit
 
 class ViewController: UIViewController, BDelegate{
     
+    // This variable is connected to the index of the segmented control.
     var currentSelection:Int = 0
+    
     var filteredPeople:[Appointment] = []
     
     func filterLists(appointmentHeader:AppointmentHeader, segmentIndex: Int, section:Int) -> [Appointment] {
-        print(segmentIndex)
+        print("Segment Index:", segmentIndex)
+        print("Section:", section)
         
         // Cases for each section
         switch section {
@@ -70,6 +73,9 @@ class ViewController: UIViewController, BDelegate{
         tableView.reloadSections([0, 1], with: .fade)
         
         // Return the filteredPeople array.
+        print("")
+        print(filteredPeople)
+        print("")
         return filteredPeople
     }
     
@@ -230,7 +236,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         headerCell.backgroundView = UIView(frame: headerCell.bounds)
         headerCell.backgroundView?.backgroundColor = UIColor.cyan
         
+        // Sets up the headerCell differently depending on each tableView section
         switch section {
+            
+        // For the 'upcoming appointments' section of the tableView...
         case 0:
             headerCell.setup(header: "Upcoming Appointments", currentSelection: currentSelection, section: section)
 //            return headerCell
