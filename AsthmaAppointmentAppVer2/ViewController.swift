@@ -13,7 +13,8 @@ import UIKit
 class ViewController: UIViewController, BDelegate{
     
     // This variable is connected to the index of the segmented control.
-    var currentSelection:Int = 0
+    var currentSelectionUpcoming:Int = 0
+    var currentSelectionPast:Int = 0
     
     var filteredUpcoming:[Appointment] = []
     var filteredPast:[Appointment] = []
@@ -43,6 +44,8 @@ class ViewController: UIViewController, BDelegate{
                 filteredUpcoming = upcomingAppointments
             }
             
+            currentSelectionUpcoming = segmentIndex
+            
         // If we are in the 'past' section of the tableView, perform the following:
         case AppointmentType.past.rawValue:
             
@@ -60,6 +63,8 @@ class ViewController: UIViewController, BDelegate{
                 filteredPast = pastAppointments
             }
             
+            currentSelectionPast = segmentIndex
+            
         // If we aren't in either the 'upcoming' or 'past' sections, then...
         default:
             
@@ -68,8 +73,9 @@ class ViewController: UIViewController, BDelegate{
             filteredPast = []
         }
         
-        // Sets the 'currentSelection' variable of the ViewController equal to the segment index.
-        currentSelection = segmentIndex
+        // Sets the 'currentSelectionUpcoming' variable of the ViewController equal to the segment index.
+//        currentSelectionUpcoming = segmentIndex
+        
         
         // Reload both sections of the table.
 //        tableView.reloadSections([section], with: .fade)
@@ -266,15 +272,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             
         // For the 'upcoming appointments' section of the tableView...
         case 0:
-            headerCell.setup(header: "Upcoming Appointments", currentSelection: currentSelection, section: section)
+            headerCell.setup(header: "Upcoming Appointments", currentSelection: currentSelectionUpcoming, section: section)
 //            return headerCell
 
         case 1:
-            headerCell.setup(header: "Past Appointments", currentSelection: currentSelection, section: section)
+            headerCell.setup(header: "Past Appointments", currentSelection: currentSelectionPast, section: section)
 //            return headerCell
 
         default:
-            headerCell.setup(header: "Appointments", currentSelection: currentSelection, section: section)
+            headerCell.setup(header: "Appointments", currentSelection: currentSelectionUpcoming, section: section)
 //            return headerCell
 
         }
