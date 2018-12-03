@@ -15,7 +15,8 @@ class ViewController: UIViewController, BDelegate{
     // This variable is connected to the index of the segmented control.
     var currentSelection:Int = 0
     
-    var filteredPeople:[Appointment] = []
+    var filteredUpcoming:[Appointment] = []
+    var filteredPast:[Appointment] = []
     
     func filterLists(appointmentHeader:AppointmentHeader, segmentIndex: Int, section:Int) -> [Appointment] {
         print("Segment Index:", segmentIndex)
@@ -31,15 +32,15 @@ class ViewController: UIViewController, BDelegate{
             // If the first segment of the segmented controller is selected, then...
             if segmentIndex == 0 {
                 
-                // Store the people that have asthma in the filteredPeople array.
-                filteredPeople = upcomingAppointments.filter{$0.hasAsthma == true}
+                // Store the people that have asthma in the filteredUpcoming array.
+                filteredUpcoming = upcomingAppointments.filter{$0.hasAsthma == true}
             }
                 
             // If any other segment of the segmented controller is selected, then...
             else {
                 
-                // Store all people in the upcomingAppointments array into the filteredPeople array.
-                filteredPeople = upcomingAppointments
+                // Store all people in the upcomingAppointments array into the filteredUpcoming array.
+                filteredUpcoming = upcomingAppointments
             }
             
         // If we are in the 'past' section of the tableView, perform the following:
@@ -48,22 +49,23 @@ class ViewController: UIViewController, BDelegate{
             // If the first segment of the segmented controller is selected, then...
             if segmentIndex == 0 {
                 
-                // Store the people that have asthma in the filteredPeople array.
-                filteredPeople = pastAppointments.filter{$0.hasAsthma == true}
+                // Store the people that have asthma in the filteredUpcoming array.
+                filteredPast = pastAppointments.filter{$0.hasAsthma == true}
             }
                 
             // If any other segment of the segmented controller is selected, then...
             else {
                 
-                // Store all people in the pastAppointments array into the filteredPeople array.
-                filteredPeople = pastAppointments
+                // Store all people in the pastAppointments array into the filteredUpcoming array.
+                filteredPast = pastAppointments
             }
             
         // If we aren't in either the 'upcoming' or 'past' sections, then...
         default:
             
-            // filteredPeople will be an empty array.
-            filteredPeople = []
+            // filteredUpcoming will be an empty array.
+            filteredUpcoming = []
+            filteredPast = []
         }
         
         // Sets the 'currentSelection' variable of the ViewController equal to the segment index.
@@ -73,11 +75,11 @@ class ViewController: UIViewController, BDelegate{
 //        tableView.reloadSections([section], with: .fade)
         tableView.reloadSections([0,1], with: .fade)
         
-        // Return the filteredPeople array.
+        // Return the filteredUpcoming array.
         print("")
-        print(filteredPeople)
+        print(filteredUpcoming)
         print("")
-        return filteredPeople
+        return filteredUpcoming
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -123,7 +125,7 @@ class ViewController: UIViewController, BDelegate{
         
         tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
         
-//        filteredPeople = filterLists(appointmentHeader: <#AppointmentHeader#>, segmentIndex: 0)
+//        filteredUpcoming = filterLists(appointmentHeader: <#AppointmentHeader#>, segmentIndex: 0)
         
 //        filterLists(appointmentHeader: AppointmentHeader.self, segmentIndex: 0, section: 0)
 //        filterLists(appointmentHeader: AppointmentHeader.self, segmentIndex: 0, section: 1)
@@ -183,7 +185,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //            return allAppointments.count
 //        }
         
-        return filteredPeople.count
+//        return filteredUpcoming.count
+        
+        switch section {
+        case 0:
+            return filteredUpcoming.count
+        case 1:
+            return filteredPast.count
+        default:
+            return allAppointments.count
+        }
         
     }
     
@@ -196,7 +207,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //        var item:Appointment = people[indexPath.row]
         
 //        var item:Appointment = allAppointments[indexPath.row]
-        var item:Appointment = filteredPeople[indexPath.row]
+//        var item:Appointment = filteredUpcoming[indexPath.row]
+        var item:Appointment?
         
         
 //        if indexPath.section == 0 {
@@ -208,19 +220,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
 //        }
         
-//        switch indexPath.section {
-//        case 0:
-////            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
+        switch indexPath.section {
+        case 0:
+//            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
 //            item = upcomingAppointments[indexPath.row]
-//        case 1:
-////            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
+            item = filteredUpcoming[indexPath.row]
+        case 1:
+//            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
 //            item = pastAppointments[indexPath.row]
-//        default:
-////            item = people[indexPath.row]
-//            item = allAppointments[indexPath.row]
-//        }
+            item = filteredPast[indexPath.row]
+        default:
+//            item = people[indexPath.row]
+            item = allAppointments[indexPath.row]
+        }
         
-        cell.setup(appointment:item)
+        cell.setup(appointment:item!)
         return cell
         
 
@@ -235,7 +249,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 ////            return people.filter{$0.appointmentType == }
 ////        }
 //
-//        return filteredPeople.filter{$0.appointmentType == appointmentType}
+//        return filteredUpcoming.filter{$0.appointmentType == appointmentType}
 //    }
     
     // Display header cell
