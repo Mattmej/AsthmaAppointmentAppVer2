@@ -106,11 +106,7 @@ class ViewController: UIViewController, BDelegate{
             filteredPast = []
         }
         
-        // Sets the 'currentSelectionUpcoming' variable of the ViewController equal to the segment index.
-//        currentSelectionUpcoming = segmentIndex
-        
-        
-        // Reload both sections of the table.
+        // Reload a section of the table.
         tableView.reloadSections([section], with: .fade)
         //tableView.reloadSections([0,1], with: .fade)
         
@@ -118,7 +114,7 @@ class ViewController: UIViewController, BDelegate{
         print("")
         print(filteredUpcoming)
         print("")
-        return filteredUpcoming
+        return filteredUpcoming         // this is never used. Maybe I'll remove it.
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -133,11 +129,7 @@ class ViewController: UIViewController, BDelegate{
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
-        
-//        filteredUpcoming = filterLists(appointmentHeader: <#AppointmentHeader#>, segmentIndex: 0)
-        
-//        filterLists(appointmentHeader: AppointmentHeader.self, segmentIndex: 0, section: 0)
-//        filterLists(appointmentHeader: AppointmentHeader.self, segmentIndex: 0, section: 1)
+
         
         filteredUpcoming = upcomingAppointments.filter{$0.hasAsthma == true}
         filteredPast = pastAppointments.filter{$0.hasAsthma == true}
@@ -171,33 +163,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Number of rows for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//        return people.count
-//        return splitLists(appointmentType: AppointmentType.upcoming).count
-        
-        // Number of rows will differ depending on the section.
-//        switch section {
-//
-//        // For the 'upcoming' section...
-//        case AppointmentType.upcoming.rawValue:
-//
-//            // The number of rows will equal the number of upcoming appointments.
-//            return upcomingAppointments.count
-//
-//        // For the 'past' section...
-//        case AppointmentType.past.rawValue:
-//
-//            // The number of rows will equal the number of past appointments.
-//            return pastAppointments.count
-//
-//        // If we are in neither of those sections, then...
-//        default:
-//
-//            // The number of rows will equal the number of total appointments.
-//            return allAppointments.count
-//        }
-        
-//        return filteredUpcoming.count
         
         switch section {
         case 0:
@@ -214,35 +179,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? AppointmentTableViewCell else { return UITableViewCell() }
         
-//        let item = people[indexPath.row]
-        
-//        var item:Appointment = people[indexPath.row]
-        
-//        var item:Appointment = allAppointments[indexPath.row]
-//        var item:Appointment = filteredUpcoming[indexPath.row]
         var item:Appointment?
         
         
-//        if indexPath.section == 0 {
-//            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
-//
-//        }
-//
-//        else {
-//            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
-//        }
-        
         switch indexPath.section {
         case 0:
-//            item = splitLists(appointmentType: AppointmentType.upcoming)[indexPath.row]
-//            item = upcomingAppointments[indexPath.row]
             item = filteredUpcoming[indexPath.row]
         case 1:
-//            item = splitLists(appointmentType: AppointmentType.past)[indexPath.row]
-//            item = pastAppointments[indexPath.row]
             item = filteredPast[indexPath.row]
         default:
-//            item = people[indexPath.row]
             item = allAppointments[indexPath.row]
         }
         
@@ -252,17 +197,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     }
     
-//    // Split into upcoming and past sections
-//    func splitLists(appointmentType: AppointmentType) -> [Appointment] {
-////        if appointmentType == AppointmentType.upcoming {
-////            return people.filter{$0.appointmentType == appointmentType}
-////        }
-////        else {
-////            return people.filter{$0.appointmentType == }
-////        }
-//
-//        return filteredUpcoming.filter{$0.appointmentType == appointmentType}
-//    }
+
     
     // Display header cell
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -279,19 +214,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         // For the 'upcoming appointments' section of the tableView...
         case 0:
             headerCell.setup(header: "Upcoming Appointments", currentSelection: currentSelectionUpcoming, section: section)
-//            return headerCell
 
         case 1:
             headerCell.setup(header: "Past Appointments", currentSelection: currentSelectionPast, section: section)
-//            return headerCell
 
         default:
             headerCell.setup(header: "Appointments", currentSelection: currentSelectionUpcoming, section: section)
-//            return headerCell
 
         }
         
-//        headerCell.setup(header: "Appointments", currentSelection: 0)
         return headerCell
         
         
