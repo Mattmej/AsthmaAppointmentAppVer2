@@ -70,7 +70,8 @@ class ViewController: UIViewController, BDelegate{
         currentSelection = segmentIndex
         
         // Reload both sections of the table.
-        tableView.reloadSections([0, 1], with: .fade)
+//        tableView.reloadSections([section], with: .fade)
+        tableView.reloadSections([0,1], with: .fade)
         
         // Return the filteredPeople array.
         print("")
@@ -123,6 +124,13 @@ class ViewController: UIViewController, BDelegate{
         tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
         
 //        filteredPeople = filterLists(appointmentHeader: <#AppointmentHeader#>, segmentIndex: 0)
+        
+//        filterLists(appointmentHeader: AppointmentHeader.self, segmentIndex: 0, section: 0)
+//        filterLists(appointmentHeader: AppointmentHeader.self, segmentIndex: 0, section: 1)
+        
+        
+
+        
     }
 
     override func didReceiveMemoryWarning() {
