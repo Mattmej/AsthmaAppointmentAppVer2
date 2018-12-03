@@ -111,8 +111,8 @@ class ViewController: UIViewController, BDelegate{
         
         
         // Reload both sections of the table.
-//        tableView.reloadSections([section], with: .fade)
-        tableView.reloadSections([0,1], with: .fade)
+        tableView.reloadSections([section], with: .fade)
+        //tableView.reloadSections([0,1], with: .fade)
         
         // Return the filteredUpcoming array.
         print("")

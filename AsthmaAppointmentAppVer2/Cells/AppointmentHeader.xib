@@ -23,10 +23,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q1o-9i-CH6">
-                    <rect key="frame" x="10" y="41" width="121" height="29"/>
+                    <rect key="frame" x="10" y="41" width="299" height="29"/>
                     <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
+                        <segment title="Asthma Appointments"/>
+                        <segment title="All Appointments"/>
                     </segments>
                     <connections>
                         <action selector="segmentValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="WCx-WJ-0BM"/>
