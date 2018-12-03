@@ -48,10 +48,12 @@ class ViewController: UIViewController, BDelegate{
     var currentSelectionUpcoming:Int = 0
     var currentSelectionPast:Int = 0
     
-
+    // Arrays for filtering data from upcoming and past appointments
     var filteredUpcoming:[Appointment] = []
     var filteredPast:[Appointment] = []
     
+    
+    // Filters the 'upcoming' and 'past' lists depending on the segmented controller selected.
     func filterLists(appointmentHeader:AppointmentHeader, segmentIndex: Int, section:Int) {
         print("Segment Index:", segmentIndex)
         print("Section:", section)
@@ -77,7 +79,10 @@ class ViewController: UIViewController, BDelegate{
                 filteredUpcoming = upcomingAppointments
             }
             
+            // Stores the segment's index in a variable
             currentSelectionUpcoming = segmentIndex
+            
+            
             
         // If we are in the 'past' section of the tableView, perform the following:
         case AppointmentType.past.rawValue:
@@ -96,21 +101,20 @@ class ViewController: UIViewController, BDelegate{
                 filteredPast = pastAppointments
             }
             
+            // Stores the segment's index in a variable.
             currentSelectionPast = segmentIndex
             
         // If we aren't in either the 'upcoming' or 'past' sections, then...
         default:
             
-            // filteredUpcoming will be an empty array.
+            // Both filters will be empty arrays.
             filteredUpcoming = []
             filteredPast = []
         }
         
         // Reload a section of the table.
         tableView.reloadSections([section], with: .fade)
-        //tableView.reloadSections([0,1], with: .fade)
         
-        // Return the filteredUpcoming array.
         print("")
         print(filteredUpcoming)
         print("")
@@ -118,18 +122,17 @@ class ViewController: UIViewController, BDelegate{
     
     @IBOutlet weak var tableView: UITableView!
 
-    
-    
-    
-    
 
+    // Do the following upon loading.
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Registers the AppointmentHeader to be used in the tableView
         tableView.register(UINib(nibName: "AppointmentHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "AppointmentHeader")
 
-        
+        // Initial values for the filtered items.
+        // Both will initially display asthma patients only.
         filteredUpcoming = upcomingAppointments.filter{$0.hasAsthma == true}
         filteredPast = pastAppointments.filter{$0.hasAsthma == true}
         
@@ -180,7 +183,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         var item:Appointment?
         
-        
         switch indexPath.section {
         case 0:
             item = filteredUpcoming[indexPath.row]
@@ -200,10 +202,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Display header cell
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        // The headerCell will be a header for the tableView that will follow the format of the AppointmentHeader swift file.
         guard let headerCell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AppointmentHeader") as? AppointmentHeader else { return UITableViewCell() }
         
+        // Sets the headerCell of the tableView as the delegate.
         headerCell.delegate = self
         
+        // Set colors for the headerCell.
         headerCell.backgroundView = UIView(frame: headerCell.bounds)
         headerCell.backgroundView?.backgroundColor = UIColor.cyan
         

@@ -12,7 +12,6 @@ protocol BDelegate {
     
     // Accepts parameters for appointmentHeader, segment index, and table section
     func filterLists(appointmentHeader:AppointmentHeader, segmentIndex:Int, section:Int)
-//    func splitLists(isUpcoming:Bool) -> [Appointment]
 }
 
 class AppointmentHeader: UITableViewHeaderFooterView {
@@ -59,9 +58,5 @@ class AppointmentHeader: UITableViewHeaderFooterView {
         self.section = section
 
         
-
-        
     }
-    
-
 }

@@ -26,6 +26,8 @@ class AppointmentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    // Sets up the cell
     func setup(appointment:Appointment) {
         self.appointmentDateLabel.text = appointment.date
         self.nameLabel.text = appointment.name
