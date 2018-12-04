@@ -166,11 +166,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     // Number of rows for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        // The number of rows for each section changes depending on the section.
         switch section {
+            
+        // In the 'upcoming' section, there will be enough rows for each entry in the 'filteredUpcoming' array.
         case 0:
             return filteredUpcoming.count
+        
+        // Same as the above, but for the 'filteredPast' array.
         case 1:
             return filteredPast.count
+            
+        // Default case: have enough rows for all appointments.
         default:
             return allAppointments.count
         }
@@ -179,20 +186,31 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Loop through individual cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Sets the cell as an instance of AppointmentTableViewCell
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? AppointmentTableViewCell else { return UITableViewCell() }
         
         var item:Appointment?
         
+        // Depending on the section, different cells are displayed.
         switch indexPath.section {
+            
+        // The first section will display the upcoming appointments.
         case 0:
             item = filteredUpcoming[indexPath.row]
+            
+        // The second section will display the past appointments.
         case 1:
             item = filteredPast[indexPath.row]
+            
+        // Default case: All appointments will be shown.
         default:
             item = allAppointments[indexPath.row]
         }
         
+        // The actual setup method for creating each cell.
         cell.setup(appointment:item!)
+        
         return cell
         
 
